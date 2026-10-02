@@ -23,7 +23,7 @@ fake_db = []
 def get_tasks():
     return fake_db
 
-"/tasks/", response_model=TaskOut, tags=["tasks"]
+@app.post("/tasks/", response_model=TaskOut, tags=["tasks"])  
 def create_task(task: Task):
     fake_db.append(task)
     return task
